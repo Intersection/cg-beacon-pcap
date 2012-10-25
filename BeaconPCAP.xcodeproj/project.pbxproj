@@ -27,6 +27,7 @@
 		DABB24501639800400E345AF /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = DABB244F1639800400E345AF /* shader.fsh */; };
 		DABB24531639800400E345AF /* rg_grad.png in Resources */ = {isa = PBXBuildFile; fileRef = DABB24521639800400E345AF /* rg_grad.png */; };
 		DABB245A1639812800E345AF /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24591639812800E345AF /* libpcap.dylib */; };
+		DABB24681639D2B700E345AF /* Beacon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DABB24671639D2B700E345AF /* Beacon.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,8 @@
 		DABB244F1639800400E345AF /* shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = shader.fsh; path = resources/shaders/shader.fsh; sourceTree = "<group>"; };
 		DABB24521639800400E345AF /* rg_grad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rg_grad.png; path = resources/images/rg_grad.png; sourceTree = "<group>"; };
 		DABB24591639812800E345AF /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
+		DABB24661639D2AE00E345AF /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Beacon.h; path = include/Beacon.h; sourceTree = "<group>"; };
+		DABB24671639D2B700E345AF /* Beacon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Beacon.cpp; path = src/Beacon.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +87,6 @@
 		DABB24131639800400E345AF = {
 			isa = PBXGroup;
 			children = (
-				DABB24591639812800E345AF /* libpcap.dylib */,
 				DABB243A1639800400E345AF /* BeaconPCAP */,
 				DABB24211639800400E345AF /* Frameworks */,
 				DABB241F1639800400E345AF /* Products */,
@@ -102,6 +104,7 @@
 		DABB24211639800400E345AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DABB24591639812800E345AF /* libpcap.dylib */,
 				DABB24221639800400E345AF /* Cocoa.framework */,
 				DABB24241639800400E345AF /* AppKit.framework */,
 				DABB24261639800400E345AF /* Foundation.framework */,
@@ -145,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				DABB24461639800400E345AF /* BeaconPCAPApp.cpp */,
+				DABB24671639D2B700E345AF /* Beacon.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -152,6 +156,7 @@
 		DABB24481639800400E345AF /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				DABB24661639D2AE00E345AF /* Beacon.h */,
 				DABB24491639800400E345AF /* Resources.h */,
 				DABB244A1639800400E345AF /* Constants.h */,
 			);
@@ -253,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DABB24471639800400E345AF /* BeaconPCAPApp.cpp in Sources */,
+				DABB24681639D2B700E345AF /* Beacon.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
