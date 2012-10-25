@@ -1,12 +1,12 @@
 uniform sampler2D tex;
-uniform vec3 mixColor;
+uniform int pingCount;
 
 void main( void )
 {
 	vec3 sample;
 	vec2 st = gl_TexCoord[0].st;
 	sample = texture2D( tex, st ).rgb;
-	sample += mixColor;
+	sample.r /= float(pingCount);
 	gl_FragColor = vec4( sample, 1.0 );
 	
 }

@@ -18,6 +18,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <iostream>
 
 class Beacon {
 public:
@@ -28,7 +29,9 @@ public:
 	void startPacketCapture();
 	void stopPacketCapture();
     int getPingCountForMAC(std::string mac);
-	
+    std::map<std::string, int> getPings();
+    std::map<std::string, int> getAndClearPings();
+
 	bool					mPacketCaptureRunning;
 	bool					mPacketCaptureShouldStop;
 	std::thread				mPacketCaptureThread;

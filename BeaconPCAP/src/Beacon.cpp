@@ -123,3 +123,16 @@ Beacon::~Beacon()
 {
     
 }
+
+std::map<std::string, int> Beacon::getPings()
+{
+    return mPings;
+}
+
+std::map<std::string, int> Beacon::getAndClearPings()
+{
+    std::map<std::string, int> tmpMap;
+    tmpMap.insert(mPings.begin(), mPings.end());
+    mPings.clear();
+    return tmpMap;
+}

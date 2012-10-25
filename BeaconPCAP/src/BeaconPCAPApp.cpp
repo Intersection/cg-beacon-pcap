@@ -26,7 +26,6 @@ public:
 	void draw();
 
 	void togglePacketCapture();
-
 	
 	
 	gl::Texture				mTexture;
@@ -34,6 +33,8 @@ public:
 	gl::Fbo					mFbo;
 
 	Beacon					mBeacon;
+	
+	std::map<std::string, int> mPingBatch;
 };
 
 void BeaconPCAPApp::togglePacketCapture()
@@ -46,6 +47,7 @@ void BeaconPCAPApp::prepareSettings( Settings *settings )
 	settings->setFrameRate( kFrameRate );
 	settings->setWindowSize( kWindowWidth, kWindowHeight );
 }
+
 
 void BeaconPCAPApp::setup()
 {
@@ -92,8 +94,9 @@ void BeaconPCAPApp::resize( ResizeEvent event )
 void BeaconPCAPApp::update()
 {
 	// Do something with your texture here.
-
-	console() << mBeacon.getPingCountForMAC(string("10:40:f3:83:a1:9a")) << std::endl;
+	//console() << mBeacon.getPingCountForMAC(string("10:40:f3:83:a1:9a")) << std::endl;
+	mPingBatch = mBeacon.getAndClearPings();
+	
 }
 
 void BeaconPCAPApp::draw()
@@ -106,6 +109,8 @@ void BeaconPCAPApp::draw()
 	mTexture.enableAndBind();
 	mShader.bind();
 	mShader.uniform( "tex", 0 );
+	int c = mPingBatch.size();
+	mShader.uniform( "pingCount", c);
 	gl::drawSolidRect( getWindowBounds() );
 	mTexture.unbind();
 	mShader.unbind();
