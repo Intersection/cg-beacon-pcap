@@ -106,7 +106,7 @@ void BeaconPCAPApp::pcap()
 		string addy;
 		do {
 			char tmp[10];
-			sprintf(tmp, "%s%x", (i == ETHER_ADDR_LEN) ? "" : ":", *ptr++);
+			snprintf(tmp, sizeof(tmp), "%s%x", (i == ETHER_ADDR_LEN) ? "" : ":", *ptr++);
 			addy += tmp;
 			
 		} while(--i > 0);
