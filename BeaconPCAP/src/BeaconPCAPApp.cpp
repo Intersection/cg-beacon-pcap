@@ -4,6 +4,8 @@
 #include "cinder/gl/Texture.h"
 #include "cinder/gl/Fbo.h"
 #include "cinder/ImageIo.h"
+#include "cinder/Capture.h"
+#include "cinder/Surface.h"
 
 #include "cinder/params/Params.h"
 
@@ -27,7 +29,8 @@ public:
 
 	void togglePacketCapture();
 	
-	
+	Capture					mCapture;
+
 	gl::Texture				mTexture;
 	gl::GlslProg			mShader;
 	gl::Fbo					mFbo;
@@ -51,6 +54,15 @@ void BeaconPCAPApp::prepareSettings( Settings *settings )
 
 void BeaconPCAPApp::setup()
 {
+	try {
+		mCapture = Capture( kCaptureWidth, kCaptureHeight );
+		mCapture.start();
+	} catch ( ... ) {
+		console() << "Error with capture device." << std::endl;
+		exit(1);
+	}
+	
+
 	try {
 		mShader = gl::GlslProg( loadResource( RES_SHADER_PASSTHRU ), loadResource( RES_SHADER_FRAGMENT ) );
 	} catch ( gl::GlslProgCompileExc &exc ) {
@@ -93,6 +105,8 @@ void BeaconPCAPApp::resize( ResizeEvent event )
 
 void BeaconPCAPApp::update()
 {
+	if( mCapture && mCapture.checkNewFrame() ) mTexture = gl::Texture( mCapture.getSurface() );
+
 	// Do something with your texture here.
 	//console() << mBeacon.getPingCountForMAC(string("10:40:f3:83:a1:9a")) << std::endl;
 	mPingBatch = mBeacon.getAndClearPings();
@@ -109,8 +123,9 @@ void BeaconPCAPApp::draw()
 	mTexture.enableAndBind();
 	mShader.bind();
 	mShader.uniform( "tex", 0 );
-	int c = mPingBatch.size();
-	mShader.uniform( "pingCount", c);
+	mShader.uniform( "bright", 0.2f + ((float)mPingBatch.size() * 0.3f) );
+	float scale = 200.0f;//max(20.0f, (50.0f * (float)mPingBatch.size()));
+	mShader.uniform( "ledScale", scale);
 	gl::drawSolidRect( getWindowBounds() );
 	mTexture.unbind();
 	mShader.unbind();
@@ -123,4 +138,4 @@ void BeaconPCAPApp::draw()
 }
 
 
-CINDER_APP_BASIC( BeaconPCAPApp, RendererGl(0) )
+CINDER_APP_BASIC( BeaconPCAPApp, RendererGl(4) )
