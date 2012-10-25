@@ -1,0 +1,375 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DABB24231639800400E345AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24221639800400E345AF /* Cocoa.framework */; };
+		DABB24251639800400E345AF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24241639800400E345AF /* AppKit.framework */; };
+		DABB24271639800400E345AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24261639800400E345AF /* Foundation.framework */; };
+		DABB24291639800400E345AF /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24281639800400E345AF /* Accelerate.framework */; };
+		DABB242B1639800400E345AF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB242A1639800400E345AF /* AudioToolbox.framework */; };
+		DABB242D1639800400E345AF /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB242C1639800400E345AF /* AudioUnit.framework */; };
+		DABB242F1639800400E345AF /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB242E1639800400E345AF /* CoreAudio.framework */; };
+		DABB24311639800400E345AF /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24301639800400E345AF /* QuickTime.framework */; };
+		DABB24331639800400E345AF /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24321639800400E345AF /* QTKit.framework */; };
+		DABB24351639800400E345AF /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24341639800400E345AF /* CoreVideo.framework */; };
+		DABB24371639800400E345AF /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24361639800400E345AF /* Carbon.framework */; };
+		DABB24391639800400E345AF /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24381639800400E345AF /* OpenGL.framework */; };
+		DABB243F1639800400E345AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DABB243D1639800400E345AF /* InfoPlist.strings */; };
+		DABB24421639800400E345AF /* CGCredits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DABB24411639800400E345AF /* CGCredits.rtf */; };
+		DABB24441639800400E345AF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DABB24431639800400E345AF /* Credits.rtf */; };
+		DABB24471639800400E345AF /* BeaconPCAPApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DABB24461639800400E345AF /* BeaconPCAPApp.cpp */; };
+		DABB244E1639800400E345AF /* passthru.vsh in Resources */ = {isa = PBXBuildFile; fileRef = DABB244D1639800400E345AF /* passthru.vsh */; };
+		DABB24501639800400E345AF /* shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = DABB244F1639800400E345AF /* shader.fsh */; };
+		DABB24531639800400E345AF /* rg_grad.png in Resources */ = {isa = PBXBuildFile; fileRef = DABB24521639800400E345AF /* rg_grad.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DABB241E1639800400E345AF /* BeaconPCAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconPCAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DABB24221639800400E345AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		DABB24241639800400E345AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		DABB24261639800400E345AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DABB24281639800400E345AF /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		DABB242A1639800400E345AF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DABB242C1639800400E345AF /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		DABB242E1639800400E345AF /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		DABB24301639800400E345AF /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = System/Library/Frameworks/QuickTime.framework; sourceTree = SDKROOT; };
+		DABB24321639800400E345AF /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		DABB24341639800400E345AF /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		DABB24361639800400E345AF /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+		DABB24381639800400E345AF /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		DABB243C1639800400E345AF /* BeaconPCAP-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BeaconPCAP-Info.plist"; sourceTree = "<group>"; };
+		DABB243E1639800400E345AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DABB24401639800400E345AF /* BeaconPCAP-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BeaconPCAP-Prefix.pch"; sourceTree = "<group>"; };
+		DABB24411639800400E345AF /* CGCredits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = CGCredits.rtf; sourceTree = "<group>"; };
+		DABB24431639800400E345AF /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		DABB24461639800400E345AF /* BeaconPCAPApp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = BeaconPCAPApp.cpp; path = src/BeaconPCAPApp.cpp; sourceTree = "<group>"; };
+		DABB24491639800400E345AF /* Resources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Resources.h; path = include/Resources.h; sourceTree = "<group>"; };
+		DABB244A1639800400E345AF /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = include/Constants.h; sourceTree = "<group>"; };
+		DABB244D1639800400E345AF /* passthru.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = passthru.vsh; path = resources/shaders/passthru.vsh; sourceTree = "<group>"; };
+		DABB244F1639800400E345AF /* shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = shader.fsh; path = resources/shaders/shader.fsh; sourceTree = "<group>"; };
+		DABB24521639800400E345AF /* rg_grad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rg_grad.png; path = resources/images/rg_grad.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DABB241B1639800400E345AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DABB24231639800400E345AF /* Cocoa.framework in Frameworks */,
+				DABB24251639800400E345AF /* AppKit.framework in Frameworks */,
+				DABB24271639800400E345AF /* Foundation.framework in Frameworks */,
+				DABB24291639800400E345AF /* Accelerate.framework in Frameworks */,
+				DABB242B1639800400E345AF /* AudioToolbox.framework in Frameworks */,
+				DABB242D1639800400E345AF /* AudioUnit.framework in Frameworks */,
+				DABB242F1639800400E345AF /* CoreAudio.framework in Frameworks */,
+				DABB24311639800400E345AF /* QuickTime.framework in Frameworks */,
+				DABB24331639800400E345AF /* QTKit.framework in Frameworks */,
+				DABB24351639800400E345AF /* CoreVideo.framework in Frameworks */,
+				DABB24371639800400E345AF /* Carbon.framework in Frameworks */,
+				DABB24391639800400E345AF /* OpenGL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DABB24131639800400E345AF = {
+			isa = PBXGroup;
+			children = (
+				DABB243A1639800400E345AF /* BeaconPCAP */,
+				DABB24211639800400E345AF /* Frameworks */,
+				DABB241F1639800400E345AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DABB241F1639800400E345AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DABB241E1639800400E345AF /* BeaconPCAP.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DABB24211639800400E345AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DABB24221639800400E345AF /* Cocoa.framework */,
+				DABB24241639800400E345AF /* AppKit.framework */,
+				DABB24261639800400E345AF /* Foundation.framework */,
+				DABB24281639800400E345AF /* Accelerate.framework */,
+				DABB242A1639800400E345AF /* AudioToolbox.framework */,
+				DABB242C1639800400E345AF /* AudioUnit.framework */,
+				DABB242E1639800400E345AF /* CoreAudio.framework */,
+				DABB24301639800400E345AF /* QuickTime.framework */,
+				DABB24321639800400E345AF /* QTKit.framework */,
+				DABB24341639800400E345AF /* CoreVideo.framework */,
+				DABB24361639800400E345AF /* Carbon.framework */,
+				DABB24381639800400E345AF /* OpenGL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DABB243A1639800400E345AF /* BeaconPCAP */ = {
+			isa = PBXGroup;
+			children = (
+				DABB24451639800400E345AF /* Source */,
+				DABB24481639800400E345AF /* Headers */,
+				DABB244B1639800400E345AF /* Resources */,
+				DABB243B1639800400E345AF /* Supporting Files */,
+			);
+			path = BeaconPCAP;
+			sourceTree = "<group>";
+		};
+		DABB243B1639800400E345AF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DABB243C1639800400E345AF /* BeaconPCAP-Info.plist */,
+				DABB243D1639800400E345AF /* InfoPlist.strings */,
+				DABB24401639800400E345AF /* BeaconPCAP-Prefix.pch */,
+				DABB24411639800400E345AF /* CGCredits.rtf */,
+				DABB24431639800400E345AF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DABB24451639800400E345AF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DABB24461639800400E345AF /* BeaconPCAPApp.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		DABB24481639800400E345AF /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				DABB24491639800400E345AF /* Resources.h */,
+				DABB244A1639800400E345AF /* Constants.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		DABB244B1639800400E345AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DABB244C1639800400E345AF /* Shaders */,
+				DABB24511639800400E345AF /* Images */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DABB244C1639800400E345AF /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				DABB244D1639800400E345AF /* passthru.vsh */,
+				DABB244F1639800400E345AF /* shader.fsh */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		DABB24511639800400E345AF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DABB24521639800400E345AF /* rg_grad.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DABB241D1639800400E345AF /* BeaconPCAP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DABB24561639800400E345AF /* Build configuration list for PBXNativeTarget "BeaconPCAP" */;
+			buildPhases = (
+				DABB241A1639800400E345AF /* Sources */,
+				DABB241B1639800400E345AF /* Frameworks */,
+				DABB241C1639800400E345AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BeaconPCAP;
+			productName = BeaconPCAP;
+			productReference = DABB241E1639800400E345AF /* BeaconPCAP.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DABB24151639800400E345AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = CG;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Control Group";
+			};
+			buildConfigurationList = DABB24181639800400E345AF /* Build configuration list for PBXProject "BeaconPCAP" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DABB24131639800400E345AF;
+			productRefGroup = DABB241F1639800400E345AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DABB241D1639800400E345AF /* BeaconPCAP */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DABB241C1639800400E345AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DABB243F1639800400E345AF /* InfoPlist.strings in Resources */,
+				DABB24421639800400E345AF /* CGCredits.rtf in Resources */,
+				DABB24441639800400E345AF /* Credits.rtf in Resources */,
+				DABB244E1639800400E345AF /* passthru.vsh in Resources */,
+				DABB24501639800400E345AF /* shader.fsh in Resources */,
+				DABB24531639800400E345AF /* rg_grad.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DABB241A1639800400E345AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DABB24471639800400E345AF /* BeaconPCAPApp.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DABB243D1639800400E345AF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DABB243E1639800400E345AF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DABB24541639800400E345AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = "/Users/$(USER)/SDKs/cinder_0.8.4_mac";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder_d.a";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../include $(CINDER_PATH)/include";
+			};
+			name = Debug;
+		};
+		DABB24551639800400E345AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CINDER_PATH = "/Users/$(USER)/SDKs/cinder_0.8.4_mac";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(CINDER_PATH)/boost";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				OTHER_LDFLAGS = "$(CINDER_PATH)/lib/libcinder.a";
+				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = "../include $(CINDER_PATH)/include";
+			};
+			name = Release;
+		};
+		DABB24571639800400E345AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconPCAP/BeaconPCAP-Prefix.pch";
+				INFOPLIST_FILE = "BeaconPCAP/BeaconPCAP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DABB24581639800400E345AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BeaconPCAP/BeaconPCAP-Prefix.pch";
+				INFOPLIST_FILE = "BeaconPCAP/BeaconPCAP-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DABB24181639800400E345AF /* Build configuration list for PBXProject "BeaconPCAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DABB24541639800400E345AF /* Debug */,
+				DABB24551639800400E345AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DABB24561639800400E345AF /* Build configuration list for PBXNativeTarget "BeaconPCAP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DABB24571639800400E345AF /* Debug */,
+				DABB24581639800400E345AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DABB24151639800400E345AF /* Project object */;
+}
