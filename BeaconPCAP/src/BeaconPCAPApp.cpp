@@ -16,8 +16,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netinet/if_ether.h> /* includes net/ethernet.h */
-#include <sstream>
-
+#include "cinder/Thread.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -33,24 +32,59 @@ public:
 	void update();
 	void draw();
 	
-	void pcap();
+	void togglePacketCapture();
+	void startPacketCapture();
+	void stopPacketCapture();
+	void doPacketCaptureFn();
 	
 	
 	gl::Texture				mTexture;
 	gl::GlslProg			mShader;
 	gl::Fbo					mFbo;
-	params::InterfaceGl		mParams;
 	
-	float mMixColorRed;
-	float mMixColorGreen;
-	float mMixColorBlue;
+	bool					mPacketCaptureRunning;
+	bool					mPacketCaptureShouldStop;
+	std::thread				mPacketCaptureThread;
+
+	vector<std::string>		mPings;
 	
 };
 
-
-
-void BeaconPCAPApp::pcap()
+void BeaconPCAPApp::togglePacketCapture()
 {
+	if(mPacketCaptureRunning){
+		stopPacketCapture();
+		console() << "Stopping packet capture." << std::endl;
+	}else{
+		startPacketCapture();
+		console() << "Starting packet capture." << std::endl;
+	}
+}
+void BeaconPCAPApp::startPacketCapture()
+{
+	if(mPacketCaptureRunning) return;
+	try {
+		mPacketCaptureShouldStop = false;
+		mPacketCaptureThread = thread( bind( &BeaconPCAPApp::doPacketCaptureFn, this ) );
+		mPacketCaptureRunning = true;
+	}catch(...){
+		mPacketCaptureRunning = false;
+	}
+	
+}
+
+void BeaconPCAPApp::stopPacketCapture()
+{
+	if(!mPacketCaptureRunning) return;
+	mPacketCaptureShouldStop = true;
+	mPacketCaptureThread.join();
+	mPacketCaptureRunning = false;
+}
+
+void BeaconPCAPApp::doPacketCaptureFn()
+{
+	ci::ThreadSetup threadSetup; // instantiate this if you're talking to Cinder from a secondary thread
+
 	int i;
 	char *dev;
 	char errbuf[PCAP_ERRBUF_SIZE];
@@ -78,7 +112,7 @@ void BeaconPCAPApp::pcap()
 		exit(1);
 	}
 	
-	while(1) {
+	while(!mPacketCaptureShouldStop) {
 		packet = pcap_next(descr,&hdr);
 		
 		if(packet == NULL)
@@ -111,7 +145,7 @@ void BeaconPCAPApp::pcap()
 			
 		} while(--i > 0);
 		
-		console() << addy << std::endl;
+		mPings.push_back(addy);
 	}
 	
 }
@@ -142,15 +176,6 @@ void BeaconPCAPApp::setup()
 		console() << "Cannot load texture: " << exc.what() << std::endl;
 	}
 	
-	mMixColorRed = 0.0f;
-	mMixColorGreen = 0.0f;
-	mMixColorBlue = 0.0f;
-	
-	mParams = params::InterfaceGl( "Parameters", Vec2i( kParamsWidth, kParamsHeight ) );
-	mParams.addParam( "Mix Red", &mMixColorRed, "min=-1.0 max=1.0 step=0.01 keyIncr=r keyDecr=R" );
-	mParams.addParam( "Mix Green", &mMixColorGreen, "min=-1.0 max=1.0 step=0.01 keyIncr=g keyDecr=G" );
-	mParams.addParam( "Mix Blue", &mMixColorBlue, "min=-1.0 max=1.0 step=0.01 keyIncr=b keyDecr=B" );
-	
 }
 
 void BeaconPCAPApp::mouseDown( MouseEvent event )
@@ -164,7 +189,7 @@ void BeaconPCAPApp::keyDown( KeyEvent event )
 	}
 	
 	if (event.getCode() == KeyEvent::KEY_p) {
-		pcap();
+		togglePacketCapture();
 	}
 }
 
@@ -177,7 +202,7 @@ void BeaconPCAPApp::resize( ResizeEvent event )
 void BeaconPCAPApp::update()
 {
 	// Do something with your texture here.
-	
+	console() << mPings.size() << std::endl;
 }
 
 void BeaconPCAPApp::draw()
@@ -190,7 +215,6 @@ void BeaconPCAPApp::draw()
 	mTexture.enableAndBind();
 	mShader.bind();
 	mShader.uniform( "tex", 0 );
-	mShader.uniform( "mixColor", Vec3d( mMixColorRed, mMixColorGreen, mMixColorBlue ) );
 	gl::drawSolidRect( getWindowBounds() );
 	mTexture.unbind();
 	mShader.unbind();
@@ -200,7 +224,6 @@ void BeaconPCAPApp::draw()
 	fboTexture.setFlipped();
 	gl::draw( fboTexture );
 	
-	params::InterfaceGl::draw();
 }
 
 
