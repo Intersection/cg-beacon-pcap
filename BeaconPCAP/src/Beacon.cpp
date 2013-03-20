@@ -34,6 +34,7 @@ void Beacon::togglePacketCapture()
 
 void Beacon::startPacketCapture()
 {
+	console() << "Starting packet capture." << std::endl;
 	if(mPacketCaptureRunning) return;
 	try {
 		mPacketCaptureShouldStop = false;

@@ -26,6 +26,7 @@ public:
 	void resize( ResizeEvent event );
 	void update();
 	void draw();
+	void shutdown();
 
 	void togglePacketCapture();
 	
@@ -51,6 +52,10 @@ void BeaconPCAPApp::prepareSettings( Settings *settings )
 	settings->setWindowSize( kWindowWidth, kWindowHeight );
 }
 
+void BeaconPCAPApp::shutdown()
+{
+	mBeacon.stopPacketCapture();
+}
 
 void BeaconPCAPApp::setup()
 {
@@ -61,7 +66,7 @@ void BeaconPCAPApp::setup()
 		console() << "Error with capture device." << std::endl;
 		exit(1);
 	}
-	
+
 
 	try {
 		mShader = gl::GlslProg( loadResource( RES_SHADER_PASSTHRU ), loadResource( RES_SHADER_FRAGMENT ) );
@@ -72,6 +77,7 @@ void BeaconPCAPApp::setup()
 		console() << "Cannot load shader: " << exc.what() << std::endl;
 		exit(1);
 	}
+
 	
 	mFbo = gl::Fbo( kWindowWidth, kWindowHeight );
 	try {
@@ -108,24 +114,33 @@ void BeaconPCAPApp::update()
 	if( mCapture && mCapture.checkNewFrame() ) mTexture = gl::Texture( mCapture.getSurface() );
 
 	// Do something with your texture here.
-	//console() << mBeacon.getPingCountForMAC(string("10:40:f3:83:a1:9a")) << std::endl;
-	mPingBatch = mBeacon.getAndClearPings();
 	
+	// update brightness
+	if(mPingBatch.size() > 9) {
+		mPingBatch = mBeacon.getAndClearPings();
+	} else {
+		mPingBatch = mBeacon.getPings();
+	}
 }
 
 void BeaconPCAPApp::draw()
 {
 	// clear out the window with black
-	gl::clear( kClearColor );
-	
+	//gl::clear( kClearColor );
 	if( !mTexture ) return;
 	mFbo.bindFramebuffer();
 	mTexture.enableAndBind();
 	mShader.bind();
 	mShader.uniform( "tex", 0 );
-	mShader.uniform( "bright", 0.2f + ((float)mPingBatch.size() * 0.3f) );
-	float scale = 200.0f;//max(20.0f, (50.0f * (float)mPingBatch.size()));
-	mShader.uniform( "ledScale", scale);
+	mShader.uniform( "alpha", 0.9f );
+	mShader.uniform( "bright", max(0.1f, min((float)mPingBatch.size(), 0.95f)) );
+
+	// set LED size to ping count for a random MAC
+	
+	
+	float count = max( 100.0f, min( (50.0f * (float)(mPingBatch.begin()->second)), 400.0f  ) );
+	mShader.uniform( "ledCount", count );
+	mShader.uniform( "aspect", kWindowHeight / kWindowWidth );
 	gl::drawSolidRect( getWindowBounds() );
 	mTexture.unbind();
 	mShader.unbind();

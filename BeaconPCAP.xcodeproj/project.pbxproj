@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAABC2D716481F7B00C6631D /* led.fsh in Resources */ = {isa = PBXBuildFile; fileRef = DAABC2D616481F7B00C6631D /* led.fsh */; };
 		DABB24231639800400E345AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24221639800400E345AF /* Cocoa.framework */; };
 		DABB24251639800400E345AF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24241639800400E345AF /* AppKit.framework */; };
 		DABB24271639800400E345AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DABB24261639800400E345AF /* Foundation.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DAABC2D616481F7B00C6631D /* led.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = led.fsh; path = resources/shaders/led.fsh; sourceTree = "<group>"; };
 		DABB241E1639800400E345AF /* BeaconPCAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconPCAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABB24221639800400E345AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		DABB24241639800400E345AF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -177,6 +179,7 @@
 			children = (
 				DABB244D1639800400E345AF /* passthru.vsh */,
 				DABB244F1639800400E345AF /* shader.fsh */,
+				DAABC2D616481F7B00C6631D /* led.fsh */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAABC2D716481F7B00C6631D /* led.fsh in Resources */,
 				DABB243F1639800400E345AF /* InfoPlist.strings in Resources */,
 				DABB24421639800400E345AF /* CGCredits.rtf in Resources */,
 				DABB24441639800400E345AF /* Credits.rtf in Resources */,
@@ -378,6 +382,7 @@
 				DABB24581639800400E345AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
