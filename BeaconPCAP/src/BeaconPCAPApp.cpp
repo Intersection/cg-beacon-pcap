@@ -113,11 +113,10 @@ void BeaconPCAPApp::update()
 {
 	if( mCapture && mCapture.checkNewFrame() ) mTexture = gl::Texture( mCapture.getSurface() );
 
-	// Do something with your texture here.
-	
-	// update brightness
-	if(mPingBatch.size() > 9) {
+	// If more than the max MACs, clear and start over
+	if((float)mPingBatch.begin()->second > kMaxPings) {
 		mPingBatch = mBeacon.getAndClearPings();
+		console() << "Clearing all pings." << std::endl;
 	} else {
 		mPingBatch = mBeacon.getPings();
 	}
@@ -126,21 +125,18 @@ void BeaconPCAPApp::update()
 void BeaconPCAPApp::draw()
 {
 	// clear out the window with black
-	//gl::clear( kClearColor );
+	gl::clear( kClearColor );
 	if( !mTexture ) return;
 	mFbo.bindFramebuffer();
 	mTexture.enableAndBind();
 	mShader.bind();
 	mShader.uniform( "tex", 0 );
-	mShader.uniform( "alpha", 0.9f );
-	mShader.uniform( "bright", max(0.1f, min((float)mPingBatch.size(), 0.95f)) );
-
-	// set LED size to ping count for a random MAC
-	
-	
-	float count = max( 100.0f, min( (50.0f * (float)(mPingBatch.begin()->second)), 400.0f  ) );
-	mShader.uniform( "ledCount", count );
+	mShader.uniform( "bright", 0.99f );
+	mShader.uniform( "ledCount", 400.0f );
 	mShader.uniform( "aspect", kWindowHeight / kWindowWidth );
+	
+	mShader.uniform( "p1", (float)mPingBatch.begin()->second );
+	
 	gl::drawSolidRect( getWindowBounds() );
 	mTexture.unbind();
 	mShader.unbind();

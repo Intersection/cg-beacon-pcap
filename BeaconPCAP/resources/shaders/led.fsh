@@ -8,6 +8,9 @@ uniform float ledCount;
 
 uniform float aspect;
 
+
+uniform float p1;
+
 vec4 pixelize(vec2 uv, float count) {
     float dx = 1.0/count;
     float dy = 1.0/count;
@@ -31,8 +34,15 @@ void main()
     float mvx = abs(sin(coord.s * 3.1415)) * 1.0;
     float mvy = abs(sin(coord.t * 3.1415)) * 1.0;
 
+	// p1 maxes out at 20
+	float blend = (color.r + color.g + color.b) / 3.0;
+	float p = p1 * 1.0 / 20.0;
+	color.r = color.r + (blend + p);
+	color.g = color.g + (blend + p);
+	color.b = color.b + (blend + p);
+
     if (mvx * mvy < 0.99)
         color = color * (mvx * mvy);
-
+		
     gl_FragColor = color;
 }
