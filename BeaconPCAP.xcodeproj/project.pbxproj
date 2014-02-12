@@ -344,8 +344,10 @@
 		DABB24571639800400E345AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CINDER_PATH = "/Users/$(USER)/SDKs/cinder_0.8.5_mac";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconPCAP/BeaconPCAP-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "BeaconPCAP/BeaconPCAP-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -355,8 +357,10 @@
 		DABB24581639800400E345AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CINDER_PATH = "/Users/$(USER)/SDKs/cinder_0.8.5_mac";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BeaconPCAP/BeaconPCAP-Prefix.pch";
+				GCC_VERSION = "";
 				INFOPLIST_FILE = "BeaconPCAP/BeaconPCAP-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

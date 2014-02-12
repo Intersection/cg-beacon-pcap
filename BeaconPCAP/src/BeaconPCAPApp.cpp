@@ -23,7 +23,7 @@ public:
 	void setup();
 	void mouseDown( MouseEvent event );
 	void keyDown( KeyEvent event );
-	void resize( ResizeEvent event );
+	void resize();
 	void update();
 	void draw();
 	void shutdown();
@@ -103,7 +103,7 @@ void BeaconPCAPApp::keyDown( KeyEvent event )
 	}
 }
 
-void BeaconPCAPApp::resize( ResizeEvent event )
+void BeaconPCAPApp::resize()
 {
 	mFbo = gl::Fbo( getWindowWidth(), getWindowHeight() );
 }
